@@ -34,6 +34,7 @@ const login = () => {
     },
   });
   if (isSuccess) {
+    localStorage.setItem("gw_musinsa_ss", JSON.stringify(formObj));
     chrome.tabs.executeScript(null, {
       code: 'window.location.href = "https://gw.musinsa.com/gw/userMain.do#none"',
     });
@@ -47,4 +48,13 @@ $("input").keypress((e) => {
 });
 $("#login-btn").on("click", (e) => {
   login();
+});
+
+$(document).ready(() => {
+  const storage = localStorage.getItem("gw_musinsa_ss");
+  if (storage) {
+    const { id, password } = JSON.parse(storage);
+    $("#login-form input[name=id]").val(id);
+    $("#login-form input[name=password]").val(password);
+  }
 });
