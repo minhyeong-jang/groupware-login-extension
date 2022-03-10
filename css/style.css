@@ -1,0 +1,173 @@
+/* 메인컬러 : bc5ffe */
+* {
+  text-decoration: none;
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 맑은 고딕, Malgun Gothic,
+    Apple SD 산돌고딕 Neo, Apple SD Gothic Neo, Segoe UI, Roboto, Helvetica,
+    Arial, sans-serif;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  width: 350px;
+  background-color: #fff;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+.container {
+  max-height: 400px;
+  min-height: 400px;
+  overflow-y: scroll;
+}
+button {
+  transition: opacity 0.2s;
+}
+button:hover {
+  opacity: 0.8;
+}
+.hide {
+  display: none;
+}
+label {
+  display: flex;
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  color: #131313;
+  font-size: 13px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+input[type="checkbox"] {
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  background: transparent;
+  border: 1px solid #7b4ae8;
+  border-radius: 4px;
+  outline: 0;
+  cursor: pointer;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+input::after {
+  position: relative;
+  top: 2px;
+  left: 5px;
+  display: block;
+  width: 4px;
+  height: 7px;
+  border: 1px solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(-270deg) scale(0.5);
+  opacity: 0;
+  transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  content: "";
+}
+input:checked {
+  background-color: #7b4ae8;
+  border-color: #7b4ae8;
+}
+input:checked::after {
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+}
+
+/**
+ * Banner
+ */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  background-image: url("../banner.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.banner .version {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  color: white;
+  padding: 3px 5px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+/**
+ * Login
+ */
+.login-wrap {
+  padding: 12px;
+}
+.login {
+  position: relative;
+  margin-bottom: 12px;
+}
+.login .icon-user,
+.login .icon-key {
+  position: absolute;
+  color: #7b4ae8;
+  font-size: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  background: none;
+}
+.login input {
+  border: 2px solid rgb(123 74 232 / 68%);
+  padding: 12px 12px 12px 40px;
+  border-radius: 4px;
+  color: #333;
+  width: 100%;
+  outline: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+.login input::placeholder {
+  color: #bbb;
+}
+.login-wrap button {
+  width: 100%;
+  padding: 12px;
+  background-color: #7b4ae8;
+  color:white;
+  border: 0;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/**
+ * Description
+ */
+.description {
+  margin: 0 12px;
+  padding: 12px;
+  border-radius: 4px;
+  line-height: 18px;
+  background: #f1f1f1;
+  word-break: keep-all;
+  font-size: 13px;
+}
+.description li {
+  position: relative;
+  margin-left: 10px;
+}
+.description li + li {
+  margin-top: 8px;
+}
+.description li::before {
+  position: absolute;
+  left: -10px;
+  font-weight: bold;
+  content: "·";
+}
