@@ -1,12 +1,12 @@
 {
-  "manifest_version": 2,
-  "name": "SS Groupware Login",
-  "description": "그룹웨어 로그인 시 QR 패스",
+  "manifest_version": 3,
+  "name": "SS Groupware",
+  "description": "그룹웨어 로그인 QR 패스",
   "version": "1.0.0",
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "index.html",
-    "default_title": "SS Groupware Login"
+    "default_title": "SS Groupware"
   },
   "permissions": ["activeTab", "https://gw.musinsa.com/**/*"]
 }
