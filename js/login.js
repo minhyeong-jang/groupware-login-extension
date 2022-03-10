@@ -1,24 +1,14 @@
-$("input").keypress(function (e) {
-  if (e.which == 13) {
-    login();
-    return false;
-  }
-});
-$("#login-btn").on("click", function (e) {
-  login();
-});
-
-function login() {
-  var formObj = {};
-  var inputs = $("#login-form").serializeArray();
-  $.each(inputs, function (i, input) {
+const login = () => {
+  const formObj = {};
+  const inputs = $("#login-form").serializeArray();
+  $.each(inputs, (_, input) => {
     formObj[input.name] = input.value;
   });
 
-  var id = formObj.id;
-  var pw = formObj.password;
-
-  var loginParams = {
+  let isSuccess = false;
+  const id = formObj.id;
+  const pw = formObj.password;
+  const loginParams = {
     isScLogin: "Y",
     scUserId: id,
     scUserPwd: securityEncrypt(pw),
@@ -32,7 +22,7 @@ function login() {
     type: "post",
     async: false,
     data: loginParams,
-    success: function (data) {
+    success: (data) => {
       if (
         !data.resultCode &&
         data.indexOf("더존 그룹웨어에 오신것을 환영합니다.") !== -1
@@ -40,7 +30,21 @@ function login() {
         alert("로그인 계정을 다시 확인해주세요.");
         return;
       }
-      window.location.href = "https://gw.musinsa.com/gw/userMain.do#none";
+      isSuccess = true;
     },
   });
-}
+  if (isSuccess) {
+    chrome.tabs.executeScript(null, {
+      code: 'window.location.href = "https://gw.musinsa.com/gw/userMain.do#none"',
+    });
+  }
+};
+$("input").keypress((e) => {
+  if (e.which == 13) {
+    login();
+    return false;
+  }
+});
+$("#login-btn").on("click", (e) => {
+  login();
+});

@@ -8,5 +8,5 @@
     "default_popup": "index.html",
     "default_title": "SS Groupware Login"
   },
-  "permissions": ["https://gw.musinsa.com//*"]
+  "permissions": ["activeTab", "https://gw.musinsa.com/**/*"]
 }
