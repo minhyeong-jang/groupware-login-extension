@@ -18,8 +18,8 @@ body {
   overflow: hidden;
 }
 .container {
-  max-height: 400px;
-  min-height: 400px;
+  max-height: 373px;
+  min-height: 373px;
   overflow-y: scroll;
 }
 button {

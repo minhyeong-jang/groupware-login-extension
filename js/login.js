@@ -35,9 +35,7 @@ const login = () => {
   });
   if (isSuccess) {
     localStorage.setItem("gw_musinsa_ss", JSON.stringify(formObj));
-    chrome.tabs.executeScript(null, {
-      code: 'window.location.href = "https://gw.musinsa.com/gw/userMain.do#none"',
-    });
+    chrome.tabs.create({ url: "https://gw.musinsa.com/gw/userMain.do#none" });
   }
 };
 $("input").keypress((e) => {
